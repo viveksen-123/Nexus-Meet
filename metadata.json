@@ -1,0 +1,9 @@
+{
+  "name": "Nexus Meet",
+  "description": "A professional full-stack video conferencing application with real-time video, audio, screen sharing, and chat.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "display-capture"
+  ]
+}

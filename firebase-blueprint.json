@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Meeting": {
+      "title": "Meeting",
+      "description": "A video conferencing meeting session",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "hostId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["id", "hostId", "createdAt", "isActive"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "A message sent in a meeting chat",
+      "type": "object",
+      "properties": {
+        "meetingId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["meetingId", "senderId", "senderName", "text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/meetings/{meetingId}": {
+      "schema": "Meeting",
+      "description": "Meeting session data"
+    },
+    "/meetings/{meetingId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Chat messages for a specific meeting"
+    }
+  }
+}
